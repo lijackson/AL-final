@@ -52,11 +52,6 @@ class Evolver:
         # most important part of fitness is distance traveled
         score = -SCORE_DIST_W*(sim.d.body("rootnode").xpos[0] + sim.d.body("rootnode").xpos[1])
 
-        # but... i want to discourage high power just for the sake of it
-        # also want to discourage just building a big ball that rolls away >:(
-        # for n in unwrap_nodes(creature):
-        #     if "strength" in n.joint_attrs:
-        #         score += SCORE_ENERGY_W*(n.joint_attrs["strength"] * n.joint_attrs["frequency"]) ** 0.5
         
         return score
 
@@ -105,17 +100,6 @@ class Evolver:
                 sim.load_env(env)
                 sim.view_sim(SIMTIME)
         
-
-        # view the best seen creature for the entire evolution
-        # creature = self.best_seen[0]
-        # print(f"best fitness seen: {self.best_seen[1]}")
-
-        # env = Environment()
-        # env.assemble(creature)
-
-        # sim = Simulator()
-        # sim.load_env(env)
-        # sim.view_sim(SIMTIME)
             
 
     def get_best_performer_id(self):
